@@ -10,8 +10,9 @@ app.use(bodyParser.json());
 
 // DB Config
 // const db = require('./config/keys').mongoURI;
-const db = process.env.mongoURI;
-
+// const db = process.env.mongoURI;
+// const db = process.env.mongoURI;
+var db = 'mongodb://localhost/merntodo';
 // Connect to Mongo
 mongoose
 .connect(db)

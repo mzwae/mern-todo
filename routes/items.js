@@ -8,7 +8,7 @@ const Item = require('../../models/Item');
 router.get('/', (req, res) => {
 	Item
 	.find()
-	.sort({ date: -1})
+	.sort({ date: -1})//sort in decending order
 	.then(items => res.json(items));
 });
 
