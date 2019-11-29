@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { getItems } from '../actions/itemActions';
+import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
 class TodoList extends Component {
 
 	componentDidMount(){
 		this.props.getItems();
+	}
+
+	onDeleteClick = (id) => {
+		this.props.deleteItem(id);
 	}
 
 	render(){
@@ -40,11 +44,7 @@ class TodoList extends Component {
 										className="remove-btn"
 										color="danger"
 										size="sm"
-										onClick={() => {
-											this.setState(state => ({
-												items: state.items.filter(item => item.id !== id)
-											}));
-										}}
+										onClick={this.onDeleteClick.bind(this, id)}
 									>
 										&times;
 									</Button>
@@ -72,4 +72,4 @@ const mapStateToProps = (state) => ({
 	item: state.item
 });
 
-export default connect(mapStateToProps, { getItems })(TodoList);
+export default connect(mapStateToProps, { getItems, deleteItem })(TodoList);
