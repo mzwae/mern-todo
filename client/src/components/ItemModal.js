@@ -56,6 +56,10 @@ class ItemModal extends Component {
 										placeholder="Add item"
 										onChange={this.onChange}
 									/>
+									<Button
+										color="dark"
+										style="{{marginTop: '2rem'}}"
+										>Add Item</Button>
 								</FormGroup>
 							</Form>
 						</ModalBody>
