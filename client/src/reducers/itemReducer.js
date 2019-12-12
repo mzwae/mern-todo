@@ -1,6 +1,6 @@
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING} from '../actions/types';
 
-const initialState = {
+// const initialState = {
 // 	items: [
 // 			{id: uuid(), name: 'Have breakfast'},
 // 			{id: uuid(), name: 'Go to school'},

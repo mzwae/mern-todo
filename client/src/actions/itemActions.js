@@ -1,14 +1,19 @@
 import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from './types';
+import { returnErrors } from './errorActions';
 
 export const getItems = () => dispatch => {
 	dispatch(setItemsLoading());
 	axios
 	.get('/api/items')
-	.then({
+	.then(res => dispatch({
 		type: GET_ITEMS,
 		payload: res.data
-	});
+	})
+)
+	.catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
 
 export const addItem = item => dispatch => {
@@ -34,5 +39,7 @@ export const deleteItem = (id) => dispatch => {
 
 
 export const setItemsLoading = () => {
-	return: ITEMS_LOADING
+	return{
+		type: ITEMS_LOADING
+	};
 }
