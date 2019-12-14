@@ -2,6 +2,12 @@ import axios from 'axios';
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from './types';
 import { returnErrors } from './errorActions';
 
+export const setItemsLoading = () => {
+	return{
+		type: ITEMS_LOADING
+	};
+}
+
 export const getItems = () => dispatch => {
 	dispatch(setItemsLoading());
 	axios
@@ -36,10 +42,3 @@ export const deleteItem = (id) => dispatch => {
 		})
 	);
 };
-
-
-export const setItemsLoading = () => {
-	return{
-		type: ITEMS_LOADING
-	};
-}
