@@ -7,6 +7,16 @@ import PropTypes from 'prop-types';
 
 class TodoList extends Component {
 
+/*	TodoList.propTypes = {
+		getItems: PropTypes.func.isRequired,
+		item: PropTypes.object.isRequired
+	};
+*/
+	static propTypes = {
+	getItems: PropTypes.func.isRequired,
+	item: PropTypes.object.isRequired
+};
+
 	componentDidMount(){
 		this.props.getItems();
 	}
@@ -48,10 +58,7 @@ class TodoList extends Component {
 
 }
 
-TodoList.propTypes = {
-	getItems: PropTypes.func.isRequired,
-	item: PropTypes.object.isRequired
-};
+
 
 const mapStateToProps = (state) => ({
 	item: state.item
